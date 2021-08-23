@@ -59,6 +59,7 @@ html, body {
     background-color: wheat;
     border-radius: 50px;
     min-height: 10%;
+    max-height: 100%;
 }
 #ambientTempVal{
     transition: 5s;
@@ -76,5 +77,6 @@ html, body {
     background-color: darkolivegreen;
     border-radius: 50px;
     min-height: 10%;
+    max-height: 100%;
 /*box-shadow: 0 0 15px orangered;*/
 }
