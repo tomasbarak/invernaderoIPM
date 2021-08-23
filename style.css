@@ -57,4 +57,5 @@ html, body {
     height: 0;
     background-color: cornflowerblue;
     border-radius: 50px;
+    min-height: 15%;
 }
