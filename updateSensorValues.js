@@ -7,6 +7,6 @@
     });
 
     function useSensorsData(data){
-        document.getElementById('ambientLightVal').style.height = "" + (Number(data.AmbientLight) / 150)*100 + "%";
-        console.log("" + (Number(data.AmbientLight) / 150)*100) ;
+        document.getElementById('ambientLightVal').style.height = "" + (Number(data.AmbientLight) / 85)*100 + "%";
+        console.log("" + (Number(data.AmbientLight) / 85)*100) ;
     }
