@@ -4,28 +4,116 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sidemenustyle.css">
+    <script src="generalFunctions.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+          rel="stylesheet">
 </head>
 <body>
-
+<div id="side-menu">
+    <ul id="side-menu-items">
+        <li class="side-menu-item active">
+            <b></b>
+            <b></b>
+            <a href="#">
+                     <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                <span class="title">Home</span>
+            </a>
+        </li>
+        <li class="side-menu-item">
+            <a href="#">
+                     <span class="icon">
+                        <ion-icon name="videocam-outline"></ion-icon>
+                    </span>
+                <span class="title">Live</span>
+            </a>
+        </li>
+        <li class="side-menu-item">
+            <a href="#">
+                     <span class="icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                <span class="title">Profile</span>
+            </a>
+        </li>
+        <li class="side-menu-item-reference">
+                <div id="reference-container">
+                    <div class="single-reference">
+                        <span class="material-icons-outlined reference-icon">thermostat</span>
+                        <a>Ambient temperature</a>
+                    </div>
+                    <div class="single-reference">
+                        <span class="material-icons-outlined reference-icon">light_mode</span>
+                        <a>Ambient light</a>
+                    </div>
+                    <div class="single-reference">
+                        <span class="material-icons-outlined reference-icon">grass</span>
+                        <a>Floor humidity</a>
+                    </div>
+                    <div class="single-reference">
+                        <span class="material-icons-outlined reference-icon">opacity</span>
+                        <a>Air humidity</a>
+                    </div>
+                </div>
+        </li>
+    </ul>
+</div>
+<nav id="topnav" class="topnav-dark">
+    <ul id="topnav-items-container">
+        <li id="theme-switcher" class="topnav-item-dark topnav-item" onclick="switchTheme()" style="fill: black">
+            <span class="material-icons-outlined dark-icon">wb_sunny</span>
+        </li>
+    </ul>
+</nav>
 <section id="viewport" class="viewport-dark">
-    <div id="sensorCont">
-
+    <div class="sensor-cont" id="first-sensor-cont">
+        <span class="material-icons-outlined icon-sensor dark-icon-sensor">thermostat</span>
+        <div id="AmbientTemp" class="sensor-dark">
+            <div id="ambientTempVal"></div>
+        </div>
     </div>
-    <div id="AmbientTemp" class="sensor-dark">
-        <div id="ambientTempVal"></div>
+    <div class="sensor-cont">
+        <span class="material-icons-outlined icon-sensor dark-icon-sensor">light_mode</span>
+        <div id="AmbientLight" class="sensor-dark">
+            <div id="ambientLightVal"></div>
+        </div>
     </div>
-    <div id="AmbientLight" class="sensor-dark">
-        <div id="ambientLightVal"></div>
+    <div class="sensor-cont">
+        <span class="material-icons-outlined icon-sensor dark-icon-sensor">grass</span>
+        <div id="FloorHumidity" class="sensor-dark">
+            <div id="floorHumidityVal"></div>
+        </div>
     </div>
-    <div id="FloorHumidity" class="sensor-dark">
-        <div id="floorHumidityVal"></div>
+    <div class="sensor-cont">
+        <span class="material-icons-outlined icon-sensor dark-icon-sensor">opacity</span>
+        <div id="AmbientHumidity" class="sensor-dark">
+            <div id="ambientHumidityVal"></div>
+        </div>
     </div>
 </section>
+<form id="form" style="visibility: hidden; display: none">
+    <input type="file" id="myFile" name="filename">
+    <input type="submit">
+</form>
 <script src="https://invernaderoipm.web.app/__/firebase/8.6.5/firebase-app.js"></script>
 
 <!-- Add Firebase products that you want to use -->
 <script src="https://invernaderoipm.web.app/__/firebase/8.6.5/firebase-database.js"></script>
 <script src="https://invernaderoipm.web.app/__/firebase/init.js"></script>
 <script src="updateSensorValues.js"></script>
+<script>
+    var theme;
+    if(localStorage.getItem('theme') === 'dark' || localStorage.getItem('theme') === 'light'){
+        theme = localStorage.getItem('theme');
+    }else{
+        theme = 'dark';
+    }
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

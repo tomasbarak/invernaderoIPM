@@ -1,23 +1,75 @@
 html, body {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 * {
     margin: 0;
     padding: 0;
 }
+#topnav{
+    display: flex;
+    position: absolute;
+    top: 0;
+    height: 60px;
+    width: calc(100% - 300px);    align-items: center;
+    justify-content: flex-end;
+    padding: 0 15px;
+    box-sizing: border-box;
+    flex-direction: row;
+    margin-left: 300px;
+}
+#topnav-items-container{
+    display: flex;
+    flex-direction: row;
+}
+.topnav-dark{
+    transition: .5s;
+    background-color: #1c2132;
+}
+.topnav-light{
+    transition: .5s;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #d3d3d3;
+}
+.topnav-item{
+    cursor: pointer;
+}
+li{
+    list-style: none;
+}
+.dark-icon{
+    transition: .5s;
+    color: white;
+}
+.light-icon{
+    transition: .5s;
+    color: #080b1e;
+}
+.dark-icon-sensor{
+    transition: .5s;
+    color: white;
+}
+.light-icon-sensor{
+    transition: .5s;
+    color: #080b1e;
+}
 #viewport{
-    height: 100%;
-    width: 100%;
+    margin-top: 60px;
+    height: calc(100% - 60px);
+    width: calc(100% - 300px);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 300px;
 }
 .viewport-light{
+    transition: .5s;
     background-color: #ffffff;
 }
 .viewport-dark{
+    transition: .5s;
     background-color: #080b1e;
 }
 #sensorCont{
@@ -26,27 +78,27 @@ html, body {
     width: auto;
 }
 .sensor-light{
-    width: 50px;
+    transition: .5s;
+    width: 40px;
     height: 500px;
     border-radius: 25px;
     display: flex;
     align-items: flex-end;
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.2), 5px 5px 5px rgba(0,0,0,0.2);
-    margin-left: 50px;
-    background-color: #f8f8f8;
+    background-color: dimgrey;
 }
 .sensor-dark{
-    width: 50px;
+    transition: .5s;
+    width: 40px;
     height: 500px;
     display: flex;
     align-items: flex-end;
     border-radius: 25px;
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.2), 5px 5px 5px rgba(0,0,0,0.2);
-    margin-left: 50px;
     background-color: #1c2132;
 }
 #AmbientTemp{
-
+    margin-left: 0;
 }
 #AmbientLight{
 
@@ -79,4 +131,33 @@ html, body {
     min-height: 10%;
     max-height: 100%;
 /*box-shadow: 0 0 15px orangered;*/
+}
+#ambientHumidityVal{
+    transition: 5s;
+    width: 100%;
+    height: 0;
+    background-color: #4187f6;
+    border-radius: 50px;
+    min-height: 10%;
+    max-height: 100%;
+/*box-shadow: 0 0 15px orangered;*/
+}
+.sensor-cont{
+    margin-top: -25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+}
+#first-sensor-cont{
+    margin-left: 0;
+}
+.material-icons-outlined{
+    margin: 0 !important;
+}
+.icon-sensor{
+    transform: scale(1.5);
+    margin-bottom: 25px !important;
+    margin-top: -25px !important;
 }
