@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function (event) {
-    var baseHost = 'http://192.168.0.65'
+    var baseHost = 'http://181.165.59.49'
     var streamUrl = baseHost + ':81'
 
     const updateValue = (el, value, updateRemote) => {
