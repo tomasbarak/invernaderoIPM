@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>GreenHouse | 🔴Live</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sidemenustyle.css">
+    <link rel="icon" href="https://res.cloudinary.com/dogshome/image/upload/v1630010025/pb8dvnhc2h7bp10ctdsn.png">
     <script src="generalFunctions.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <meta property="og:image" content="https://res.cloudinary.com/dogshome/image/upload/v1630010025/kg6lkxlqmiv0vhsccgdg.png">
 </head>
 <body>
 <div id="side-menu">
@@ -21,7 +23,7 @@
                      <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
                     </span>
-                <span class="title">Home</span>
+                <span class="title titles-hidden">Home</span>
             </a>
         </li>
         <li class="side-menu-item active">
@@ -31,9 +33,10 @@
                      <span class="icon">
                         <ion-icon name="videocam-outline"></ion-icon>
                     </span>
-                <span class="title">Live</span>
+                <span class="title titles-hidden">Live</span>
             </a>
         </li>
+        <!--
         <li class="side-menu-item">
             <a href="#">
                      <span class="icon">
@@ -41,7 +44,7 @@
                     </span>
                 <span class="title">Profile</span>
             </a>
-        </li>
+        </li>-->
         <li class="side-menu-item-reference" style="visibility: hidden !important;">
             <div id="reference-container">
                 <a id="reference-title">Sensor Reference</a>
@@ -67,7 +70,7 @@
 </div>
 <nav id="topnav" class="topnav-dark">
     <ul id="topnav-items-container">
-        <li id="theme-switcher" class="topnav-item-dark topnav-item" onclick="switchTheme()" style="fill: black">
+        <li id="theme-switcher" class="topnav-item-dark topnav-item" onclick="//switchTheme()" style="fill: black; visibility: hidden">
             <span class="material-icons-outlined dark-icon">wb_sunny</span>
         </li>
     </ul>
@@ -84,17 +87,24 @@
     }else{
         theme = 'dark';
     }
-    if(localStorage.getItem('menuVisibility') === 'true' || localStorage.getItem('theme') === 'false'){
+    console.log('Value in menuExpanded(before): ' + menuExpanded)
+    if(localStorage.getItem('menuVisibility') === 'true' || localStorage.getItem('menuVisibility') === 'false'){
         if(localStorage.getItem('menuVisibility') === 'true'){
+            console.log('val-is-true')
             menuExpanded = true;
         }else if(localStorage.getItem('menuVisibility') === 'false'){
+            console.log('val-is-false')
             menuExpanded = false;
         }else{
+            console.log('non-valid-val')
             menuExpanded = true;
         }
     }else{
+        console.log('forced-to-visible')
         menuExpanded = true;
     }
+    console.log('Value in menuExpanded: ' + menuExpanded)
+    setManualMenuVisibility(menuExpanded);
 </script>
 <script>
     setInterval(function(){

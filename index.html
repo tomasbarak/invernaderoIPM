@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>GreenHouse | Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://res.cloudinary.com/dogshome/image/upload/v1630010025/pb8dvnhc2h7bp10ctdsn.png">
     <link rel="stylesheet" href="sidemenustyle.css">
     <script src="generalFunctions.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <meta property="og:image" content="https://res.cloudinary.com/dogshome/image/upload/v1630010025/kg6lkxlqmiv0vhsccgdg.png">
 </head>
 <body>
 <div id="side-menu">
@@ -24,7 +26,7 @@
                      <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
                     </span>
-                <span class="title">Home</span>
+                <span class="title titles-hidden">Home</span>
             </a>
         </li>
         <li class="side-menu-item">
@@ -32,9 +34,10 @@
                      <span class="icon">
                         <ion-icon name="videocam-outline"></ion-icon>
                     </span>
-                <span class="title">Live</span>
+                <span class="title titles-hidden">Live</span>
             </a>
         </li>
+        <!--
         <li class="side-menu-item">
             <a href="#">
                      <span class="icon">
@@ -42,25 +45,25 @@
                     </span>
                 <span class="title">Profile</span>
             </a>
-        </li>
+        </li>-->
         <li class="side-menu-item-reference">
                 <div id="reference-container">
-                    <a id="reference-title">Sensor Reference</a>
+                    <a id="reference-title" class="titles-hidden">Sensor Reference</a>
                     <div class="single-reference">
-                        <span class="material-icons-outlined reference-icon">thermostat</span>
-                        <a class="reference-title titles-show">Ambient temperature</a>
+                        <span class="material-icons-outlined dark-icon-sensor icon-sensor reference-icon-hidden">thermostat</span>
+                        <a class="reference-title titles-hidden">Ambient temperature</a>
                     </div>
                     <div class="single-reference">
-                        <span class="material-icons-outlined reference-icon">light_mode</span>
-                        <a class="reference-title titles-show">Ambient light</a>
+                        <span class="material-icons-outlined dark-icon-sensor icon-sensor reference-icon-hidden">light_mode</span>
+                        <a class="reference-title titles-hidden">Ambient light</a>
                     </div>
                     <div class="single-reference">
-                        <span class="material-icons-outlined reference-icon">grass</span>
-                        <a class="reference-title titles-show">Floor humidity</a>
+                        <span class="material-icons-outlined dark-icon-sensor icon-sensor reference-icon-hidden">grass</span>
+                        <a class="reference-title titles-hidden">Floor humidity</a>
                     </div>
                     <div class="single-reference">
-                        <span class="material-icons-outlined reference-icon">opacity</span>
-                        <a class="reference-title titles-show">Air humidity</a>
+                        <span class="material-icons-outlined icon-sensor dark-icon-sensor reference-icon-hidden">opacity</span>
+                        <a class="reference-title titles-hidden">Air humidity</a>
                     </div>
                 </div>
         </li>
@@ -68,7 +71,7 @@
 </div>
 <nav id="topnav" class="topnav-dark">
     <ul id="topnav-items-container">
-        <li id="theme-switcher" class="topnav-item-dark topnav-item" onclick="switchTheme()" style="fill: black">
+        <li id="theme-switcher" class="topnav-item-dark topnav-item" onclick="//switchTheme()" style="fill: black; visibility: hidden">
             <span class="material-icons-outlined dark-icon">wb_sunny</span>
         </li>
     </ul>
@@ -113,17 +116,24 @@
     }else{
         theme = 'dark';
     }
-    if(localStorage.getItem('menuVisibility') === 'true' || localStorage.getItem('theme') === 'false'){
+    console.log('Value in menuExpanded(before): ' + menuExpanded)
+    if(localStorage.getItem('menuVisibility') === 'true' || localStorage.getItem('menuVisibility') === 'false'){
         if(localStorage.getItem('menuVisibility') === 'true'){
+            console.log('val-is-true')
             menuExpanded = true;
         }else if(localStorage.getItem('menuVisibility') === 'false'){
+            console.log('val-is-false')
             menuExpanded = false;
         }else{
+            console.log('non-valid-val')
             menuExpanded = true;
         }
     }else{
+        console.log('forced-to-visible')
         menuExpanded = true;
     }
+    console.log('Value in menuExpanded: ' + menuExpanded)
+    setManualMenuVisibility(menuExpanded);
 </script>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

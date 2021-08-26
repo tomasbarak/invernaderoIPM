@@ -13,12 +13,12 @@ html, body {
     position: absolute;
     top: 0;
     height: 60px;
-    width: calc(100% - 300px);    align-items: center;
+    width: calc(100% - 60px);    align-items: center;
     justify-content: flex-end;
     padding: 0 15px;
     box-sizing: border-box;
     flex-direction: row;
-    margin-left: 300px;
+    margin-left: 60px;
 }
 #topnav-items-container{
     display: flex;
@@ -58,11 +58,11 @@ li{
 #viewport{
     margin-top: 60px;
     height: calc(100% - 60px);
-    width: calc(100% - 300px);
+    width: calc(100% - 60px);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 300px;
+    margin-left: 60px;
 }
 .viewport-light{
     transition: .5s;
