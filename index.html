@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="sidemenustyle.css">
     <script src="generalFunctions.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
 <body>
 <div id="side-menu">
     <ul id="side-menu-items">
+        <li id="side-menu-toggle">
+            <div>
+                <span onclick="switchMenuVisibility()" class="material-icons-outlined">menu</span>
+            </div>
+        </li>
         <li class="side-menu-item active">
             <b></b>
             <b></b>
@@ -24,7 +28,7 @@
             </a>
         </li>
         <li class="side-menu-item">
-            <a href="#">
+            <a href="cam.html">
                      <span class="icon">
                         <ion-icon name="videocam-outline"></ion-icon>
                     </span>
@@ -41,21 +45,22 @@
         </li>
         <li class="side-menu-item-reference">
                 <div id="reference-container">
+                    <a id="reference-title">Sensor Reference</a>
                     <div class="single-reference">
                         <span class="material-icons-outlined reference-icon">thermostat</span>
-                        <a>Ambient temperature</a>
+                        <a class="reference-title titles-show">Ambient temperature</a>
                     </div>
                     <div class="single-reference">
                         <span class="material-icons-outlined reference-icon">light_mode</span>
-                        <a>Ambient light</a>
+                        <a class="reference-title titles-show">Ambient light</a>
                     </div>
                     <div class="single-reference">
                         <span class="material-icons-outlined reference-icon">grass</span>
-                        <a>Floor humidity</a>
+                        <a class="reference-title titles-show">Floor humidity</a>
                     </div>
                     <div class="single-reference">
                         <span class="material-icons-outlined reference-icon">opacity</span>
-                        <a>Air humidity</a>
+                        <a class="reference-title titles-show">Air humidity</a>
                     </div>
                 </div>
         </li>
@@ -94,10 +99,6 @@
         </div>
     </div>
 </section>
-<form id="form" style="visibility: hidden; display: none">
-    <input type="file" id="myFile" name="filename">
-    <input type="submit">
-</form>
 <script src="https://invernaderoipm.web.app/__/firebase/8.6.5/firebase-app.js"></script>
 
 <!-- Add Firebase products that you want to use -->
@@ -106,10 +107,22 @@
 <script src="updateSensorValues.js"></script>
 <script>
     var theme;
+    var menuExpanded;
     if(localStorage.getItem('theme') === 'dark' || localStorage.getItem('theme') === 'light'){
         theme = localStorage.getItem('theme');
     }else{
         theme = 'dark';
+    }
+    if(localStorage.getItem('menuVisibility') === 'true' || localStorage.getItem('theme') === 'false'){
+        if(localStorage.getItem('menuVisibility') === 'true'){
+            menuExpanded = true;
+        }else if(localStorage.getItem('menuVisibility') === 'false'){
+            menuExpanded = false;
+        }else{
+            menuExpanded = true;
+        }
+    }else{
+        menuExpanded = true;
     }
 </script>
 

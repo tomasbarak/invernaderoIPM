@@ -45,3 +45,53 @@ function switchTheme(){
         return 0;
     }
 }
+function switchMenuVisibility(){
+    let sideMenu = document.getElementById('side-menu')
+    let viewport = document.getElementById('viewport')
+    let topnav = document.getElementById('topnav')
+    if(menuExpanded){
+        sideMenu.style.width = '70px';
+        viewport.style.width = 'calc(100% - 60px)'
+        viewport.style.marginLeft = '60px'
+        topnav.style.width = 'calc(100% - 60px)'
+        topnav.style.marginLeft = '60px'
+        document.getElementById('reference-title').className = 'titles-hidden'
+        let referenceIcons = document.querySelectorAll('.reference-icon');
+        let sideMenuTitles = document.querySelectorAll('.title');
+        let sideMenuRefTitles = document.querySelectorAll('.reference-title')
+
+        for(let key = 0; key < referenceIcons.length; key++){
+            referenceIcons[key].className = "material-icons-outlined icon-sensor " + theme +'-icon-sensor ' + 'reference-icon-hidden';
+        }
+        for(let key = 0; key < sideMenuTitles.length; key++){
+            sideMenuTitles[key].className = "title " + "titles-hidden";
+        }
+        for(let key = 0; key < sideMenuRefTitles.length; key++){
+            sideMenuRefTitles[key].className = "reference-title " + "titles-hidden";
+        }
+        menuExpanded = false;
+        localStorage.setItem('menuVisibility', 'false');
+    }else{
+        sideMenu.style.width = '300px';
+        viewport.style.width = 'calc(100% - 300px)'
+        viewport.style.marginLeft = '300px'
+        topnav.style.width = 'calc(100% - 300px)'
+        topnav.style.marginLeft = '300px'
+
+        document.getElementById('reference-title').className = 'ref-titles-show'
+        let referenceIcons2 = document.querySelectorAll('.reference-icon-hidden');
+        let sideMenuTitles = document.querySelectorAll('.title');
+        let sideMenuRefTitles = document.querySelectorAll('.reference-title')
+
+        for(let key = 0; key < referenceIcons2.length; key++){
+            referenceIcons2[key].className = "material-icons-outlined " + "icon-sensor-no-margin " + theme +'-icon-sensor ' + 'reference-icon';
+        }
+        for(let key = 0; key < sideMenuTitles.length; key++){
+            sideMenuTitles[key].className = "title " + 'titles-show';
+        }
+        for(let key = 0; key < sideMenuRefTitles.length; key++){
+            sideMenuRefTitles[key].className = "reference-title " + "ref-sec-titles-show";
+        }
+        menuExpanded = true;
+    }
+}

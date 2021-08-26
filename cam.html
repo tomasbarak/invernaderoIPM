@@ -4,14 +4,109 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sidemenustyle.css">
+    <script src="generalFunctions.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
 </head>
 <body>
-    <img id="viewport" src="" alt style="width: 100%; height: 100%; object-fit: cover"/>
-    <script src="https://invernaderoipm.web.app/__/firebase/8.6.5/firebase-app.js"></script>
+<div id="side-menu">
+    <ul id="side-menu-items">
+        <li id="side-menu-toggle">
+            <div>
+                <span onclick="switchMenuVisibility()" class="material-icons-outlined">menu</span>
+            </div>
+        </li>
+        <li class="side-menu-item">
+            <a href="index.html">
+                     <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                <span class="title">Home</span>
+            </a>
+        </li>
+        <li class="side-menu-item active">
+            <b></b>
+            <b></b>
+            <a href="#">
+                     <span class="icon">
+                        <ion-icon name="videocam-outline"></ion-icon>
+                    </span>
+                <span class="title">Live</span>
+            </a>
+        </li>
+        <li class="side-menu-item">
+            <a href="#">
+                     <span class="icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                <span class="title">Profile</span>
+            </a>
+        </li>
+        <li class="side-menu-item-reference" style="visibility: hidden !important;">
+            <div id="reference-container">
+                <a id="reference-title">Sensor Reference</a>
+                <div class="single-reference">
+                    <span class="material-icons-outlined reference-icon">thermostat</span>
+                    <a class="reference-title titles-show">Ambient temperature</a>
+                </div>
+                <div class="single-reference">
+                    <span class="material-icons-outlined reference-icon">light_mode</span>
+                    <a class="reference-title titles-show">Ambient light</a>
+                </div>
+                <div class="single-reference">
+                    <span class="material-icons-outlined reference-icon">grass</span>
+                    <a class="reference-title titles-show">Floor humidity</a>
+                </div>
+                <div class="single-reference">
+                    <span class="material-icons-outlined reference-icon">opacity</span>
+                    <a class="reference-title titles-show">Air humidity</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<nav id="topnav" class="topnav-dark">
+    <ul id="topnav-items-container">
+        <li id="theme-switcher" class="topnav-item-dark topnav-item" onclick="switchTheme()" style="fill: black">
+            <span class="material-icons-outlined dark-icon">wb_sunny</span>
+        </li>
+    </ul>
+</nav>
+<div id="viewport" class="viewport-dark" style="flex-direction: column">
+    <img id="stream" alt src/>
+    <a id="connectingLbl" style="color: white; font-family: Arial, sans-serif; font-size: 3em">Connecting</a>
+</div>
+<script>
+    var theme;
+    var menuExpanded;
+    if(localStorage.getItem('theme') === 'dark' || localStorage.getItem('theme') === 'light'){
+        theme = localStorage.getItem('theme');
+    }else{
+        theme = 'dark';
+    }
+    if(localStorage.getItem('menuVisibility') === 'true' || localStorage.getItem('theme') === 'false'){
+        if(localStorage.getItem('menuVisibility') === 'true'){
+            menuExpanded = true;
+        }else if(localStorage.getItem('menuVisibility') === 'false'){
+            menuExpanded = false;
+        }else{
+            menuExpanded = true;
+        }
+    }else{
+        menuExpanded = true;
+    }
+</script>
+<script>
+    setInterval(function(){
+        if(document.getElementById('stream').offsetHeight > 0){
+            document.getElementById('connectingLbl').style.visibility = 'hidden';
+        }
+    }, 0)
 
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://invernaderoipm.web.app/__/firebase/8.6.5/firebase-database.js"></script>
-    <script src="https://invernaderoipm.web.app/__/firebase/init.js"></script>
-    <script src="getImageStream.js"></script>
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="streamActions.js"></script>
 </body>
 </html>

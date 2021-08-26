@@ -161,3 +161,12 @@ li{
     margin-bottom: 25px !important;
     margin-top: -25px !important;
 }
+.icon-sensor-no-margin{
+    transform: scale(1.5);
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+#stream{
+    width: 100%;
+    object-fit: contain;
+}
