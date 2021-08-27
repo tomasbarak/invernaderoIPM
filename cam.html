@@ -9,6 +9,8 @@
     <script src="generalFunctions.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <meta property="og:image" content="https://res.cloudinary.com/dogshome/image/upload/v1630010025/kg6lkxlqmiv0vhsccgdg.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
 <div id="side-menu">
@@ -36,6 +38,7 @@
                 <span class="title titles-hidden">Live</span>
             </a>
         </li>
+
         <!--
         <li class="side-menu-item">
             <a href="#">
@@ -45,24 +48,27 @@
                 <span class="title">Profile</span>
             </a>
         </li>-->
-        <li class="side-menu-item-reference" style="visibility: hidden !important;">
-            <div id="reference-container">
-                <a id="reference-title">Sensor Reference</a>
-                <div class="single-reference">
-                    <span class="material-icons-outlined reference-icon">thermostat</span>
-                    <a class="reference-title titles-show">Ambient temperature</a>
+        <li id="side-menu-streaming-settings">
+            <div id="settings-container">
+                <a id="setting-title">Streaming Settings</a>
+                <div class="single-setting">
+                    <a class="setting-title">Streaming Resolution</a>
+                    <input type="range" min="1" max="10" value="8" class="slider" id="streamRes" oninput="updateRes(this.value)">
                 </div>
-                <div class="single-reference">
-                    <span class="material-icons-outlined reference-icon">light_mode</span>
-                    <a class="reference-title titles-show">Ambient light</a>
+                <div class="single-setting">
+                    <a class="setting-title">Streaming Quality</a>
+                    <input type="range" min="10" max="63" value="63" class="slider" style="direction: ltr" id="streamQuality" oninput="updateQuality(this.value)">
                 </div>
-                <div class="single-reference">
-                    <span class="material-icons-outlined reference-icon">grass</span>
-                    <a class="reference-title titles-show">Floor humidity</a>
+                <div class="single-setting">
+                    <a class="setting-title">Brightness</a>
+                    <input type="range" min="-2" max="2" value="-2" class="slider" id="streamBrightness" oninput="updateBright(this.value)">
                 </div>
-                <div class="single-reference">
-                    <span class="material-icons-outlined reference-icon">opacity</span>
-                    <a class="reference-title titles-show">Air humidity</a>
+                <div class="single-setting">
+                    <a class="setting-title">Exposure</a>
+                    <input step="50" type="range" min="0" max="1200" value="65" class="slider" id="streamExposure" oninput="updateExposure(this.value)">
+                </div>
+                <div class="single-setting">
+
                 </div>
             </div>
         </li>

@@ -12,13 +12,14 @@ html, body {
     display: flex;
     position: absolute;
     top: 0;
-    height: 60px;
+    height: 65px;
     width: calc(100% - 60px);    align-items: center;
     justify-content: flex-end;
     padding: 0 15px;
     box-sizing: border-box;
     flex-direction: row;
     margin-left: 60px;
+    border-bottom: 0 solid #4187f6;
 }
 #topnav-items-container{
     display: flex;
@@ -171,4 +172,16 @@ li{
     width: 100%;
     object-fit: contain;
     margin-bottom: -60px;
+}
+.slider{
+    height: 50px;
+}
+@media screen and (max-width: 480px){
+    #stream{
+        transition: 0.1s;
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+        margin-bottom: -60px;
+    }
 }

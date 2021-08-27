@@ -169,3 +169,45 @@
     margin-left: 18px !important;
     transform: scale(1.1);
 }
+.side-menu-streaming-settings{
+    list-style: none;
+}
+#setting-title{
+    transition-duration: .15s;
+    height: 50px;
+    vertical-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+#settings-container{
+    font-family: Arial, sans-serif;
+    background: dimgrey;
+    width: calc(100% - 15px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    height: 400px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+.single-setting{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.single-setting input{
+    width: 100%;
+}
+.single-setting a{
+    font-size: 0.75em;
+    font-family: Arial, sans-serif;
+    color: white;
+}
