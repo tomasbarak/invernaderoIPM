@@ -57,15 +57,15 @@
                 </div>
                 <div class="single-setting">
                     <a class="setting-title">Streaming Quality</a>
-                    <input type="range" min="10" max="63" value="63" class="slider" style="direction: ltr" id="streamQuality" oninput="updateQuality(this.value)">
+                    <input type="range" min="10" max="63" value="63" class="slider" style="direction: ltr" id="streamQuality" oninput="updateQuality(this.value)" onchange="updateQuality(this.value)">
                 </div>
                 <div class="single-setting">
                     <a class="setting-title">Brightness</a>
-                    <input type="range" min="-2" max="2" value="-2" class="slider" id="streamBrightness" oninput="updateBright(this.value)">
+                    <input type="range" min="-2" max="2" value="-2" class="slider" id="streamBrightness" oninput="updateBright(this.value)" onchange="updateBright(this.value)">
                 </div>
                 <div class="single-setting">
                     <a class="setting-title">Exposure</a>
-                    <input step="50" type="range" min="0" max="1200" value="65" class="slider" id="streamExposure" oninput="updateExposure(this.value)">
+                    <input step="25" type="range" min="0" max="1200" value="65" class="slider" id="streamExposure" oninput="updateExposure(this.value)" onchange="updateExposure(this.value)">
                 </div>
                 <div class="single-setting">
 
