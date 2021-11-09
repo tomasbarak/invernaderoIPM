@@ -1,5 +1,5 @@
 
-    var baseHost = 'http://181.165.59.49'
+    var baseHost = 'http://192.168.92.167'
     var streamUrl = baseHost + ':81'
 
     function updateRes (res) {
